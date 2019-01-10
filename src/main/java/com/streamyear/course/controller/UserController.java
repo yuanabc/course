@@ -4,9 +4,12 @@ import com.streamyear.course.common.excel.ExcelUtil;
 import com.streamyear.course.common.util.AliyunOSSUtil;
 import com.streamyear.course.entity.User;
 import com.streamyear.course.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
@@ -25,6 +28,7 @@ import java.util.UUID;
 @RequestMapping("user")
 public class UserController {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     /**
      * 用户的Service
      */
