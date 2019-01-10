@@ -67,12 +67,13 @@ public class UserController {
 
 
     @RequestMapping("/test/upload")
-    public void upload() throws Exception {
+    public String upload() throws Exception {
         String fileName = UUID.randomUUID().toString().replace("-","") + ".jpg";
         String key = "event/compensate/" + fileName;
         InputStream in = new FileInputStream("C:\\Users\\Beck\\Desktop\\timg.jpg");
         String name = aliyunOSSUtil.save(key, in);
-        System.out.println("上传图片的结果: " + name);
+        logger.info("上传完成：{}", name);
+        return name;
     }
 
     @RequestMapping("/test/getFile")
